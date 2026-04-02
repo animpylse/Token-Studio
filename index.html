@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TokenStudio - The Ultimate Solana Portfolio & Burn Utility</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --accent: #BBF294;
+            --accent-glow: rgba(187, 242, 148, 0.4);
+            --bg-dark: #0A0A0A;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --text-primary: #FFFFFF;
+            --text-secondary: rgba(255, 255, 255, 0.6);
+            --solana-cyan: #14F195;
+            --solana-purple: #BBF294;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: url('assets/connect.png');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.4) blur(40px);
+        }
+
+        .glow-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 50% -20%, var(--accent-glow) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            padding: 40px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-group {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .logo-container {
+            width: 96px;
+            height: 96px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-img {
+            width: 96px;
+            height: 96px;
+            position: relative;
+            filter: drop-shadow(0 0 10px var(--accent-glow));
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #fff 0%, var(--text-secondary) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .version-badge {
+            padding: 4px 12px;
+            background: var(--card-bg);
+            border: 1px solid #ff4444;
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #ff4444;
+            text-transform: uppercase;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 64px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.1;
+        }
+
+        .hero h1 span {
+            display: block;
+            font-size: 32px;
+            background: linear-gradient(90deg, #BBF294 0%, #F294C3 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: var(--text-secondary);
+            max-width: 900px;
+            margin: 0 auto 40px;
+        }
+
+        .cta-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border-radius: 14px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn-primary {
+            background: var(--text-primary);
+            color: var(--bg-dark);
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            color: var(--text-primary);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .btn img {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Features */
+        .features {
+            padding: 100px 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            backdrop-filter: blur(20px);
+            padding: 40px;
+            border-radius: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 24px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .feature-icon img {
+            width: 48px;
+            height: 48px;
+            position: relative;
+        }
+
+        .feature-card h3 {
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+        }
+
+        /* Stats Section */
+        .stats {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 32px;
+            padding: 60px;
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            margin-bottom: 100px;
+            backdrop-filter: blur(20px);
+        }
+
+        .stat-item h4 {
+            font-size: 40px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .stat-item p {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        footer {
+            padding: 100px 0 60px;
+            border-top: 1px solid var(--card-border);
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 80px;
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .footer-desc {
+            color: var(--text-secondary);
+            max-width: 300px;
+            font-size: 14px;
+        }
+
+        .footer-col h5 {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 40px;
+            border-top: 1px solid var(--card-border);
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(20px);
+        }
+
+        .modal-content {
+            background: #111;
+            width: 90%;
+            max-width: 800px;
+            max-height: 80vh;
+            border-radius: 24px;
+            border: 1px solid var(--card-border);
+            padding: 40px;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            color: var(--text-secondary);
+            font-size: 24px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .cta-group {
+                flex-direction: column;
+            }
+
+            .stats {
+                flex-direction: column;
+                gap: 40px;
+                padding: 40px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background-container"></div>
+    <div class="glow-overlay"></div>
+
+    <div class="container">
+        <header>
+            <div class="logo-group">
+                <div class="logo-container">
+                    <img src="assets/logo.png" alt="Token Studio" class="logo-img"
+                        style="left: -200px; filter: drop-shadow(200px 0 0 #ff4444);">
+                </div>
+                <span class="logo-text">Token Studio</span>
+            </div>
+            <div class="version-badge">v0.1.79 Beta</div>
+        </header>
+
+        <section class="hero">
+            <h1>The Definitive <br> NFT Management Engine <br> for the Solana Seeker.
+                <br>
+                <br>
+                <span>Elevate your control. Define your legacy.</span>
+            </h1>
+            <p>Token Studio is a professional-grade engine for comprehensive NFT lifecycle management on the Solana
+                blockchain. Designed specifically for digital artists and professionals, the application provides
+                absolute, granular control over the assets. Artists can create, edit, verify, print, transfer, sign,
+                freeze, and burn NFTs with deterministic precision, high-performance batching capabilities, and
+                MTU-optimized transaction efficiency. The platform integrates directly with the Solana Seed Vault to
+                ensure a non-custodial, institutional-standard security model.</p>
+            <div class="cta-group">
+                <a href="javascript:void(0)" class="btn btn-primary"
+                    style="pointer-events: none; opacity: 0.6; cursor: default;">
+                    <img src="assets/solana_logo.png" alt="Solana">
+                    Get it on dApp Store
+                </a>
+                <a href="https://x.com/impylse" class="btn btn-secondary">Follow for updates</a>
+            </div>
+
+        </section>
+
+        <section class="features" id="features">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <img src="assets/data.png" alt="Density"
+                        style="left: -100px; filter: drop-shadow(100px 0 0 #F294C3);">
+                </div>
+                <h3>High-Density</h3>
+                <p>Deterministic transaction packing for Burn and Transfer operations. Reclaim SOL and optimize your
+                    wallet with byte-perfect precision.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <img src="assets/master.png" alt="Create"
+                        style="left: -100px; filter: drop-shadow(100px 0 0 #BBF294);">
+                </div>
+                <h3>Asset Foundry</h3>
+                <p>Create, Mint, and Print NFTs with ease. Dedicated support for Metaplex Core and Legacy standards,
+                    including advanced Edition management.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <img src="assets/collection.png" alt="Management"
+                        style="left: -100px; filter: drop-shadow(100px 0 0 #BCE1F3);">
+                </div>
+                <h3>Deep Management</h3>
+                <p>Advanced control over your assets. Freeze, Sign, Verify, and Edit on-chain metadata with the security
+                    of the Seed Vault.</p>
+            </div>
+        </section>
+
+        <div class="stats">
+            <div class="stat-item">
+                <h4>1232</h4>
+                <p>High-Density Packing Algorithm</p>
+            </div>
+            <div class="stat-item">
+                <h4>SECURE</h4>
+                <p>Seed Vault Native</p>
+            </div>
+            <div class="stat-item">
+                <h4>V0</h4>
+                <p>Deterministic Tx</p>
+            </div>
+            <div class="stat-item">
+                <h4>METAPLEX</h4>
+                <p>Full Architecture Support</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">Token Studio</div>
+                    <p class="footer-desc">Professional-grade engine for comprehensive NFT lifecycle management on the
+                        Solana blockchain.</p>
+                </div>
+                <div class="footer-col">
+                    <h5>Resources</h5>
+                    <ul>
+                        <li><a href="https://www.mallow.art/collection/iN3oJdcnQyWjXj3Xw6sy65Zojdg8RBS4VPQ3PmHff5S"
+                                target="_blank" rel="noopener noreferrer">Mallow Collection</a></li>
+                        <li><a href="#features">Functionality</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Social</h5>
+                    <ul>
+                        <li><a href="https://x.com/impylse" target="_blank" rel="noopener noreferrer">Twitter / X</a>
+                        </li>
+                        <li><a href="https://discord.com/invite/5z4pE9E5Zj" target="_blank"
+                                rel="noopener noreferrer">Discord Community</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Compliance</h5>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="copyright.html">Copyright Notice</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>© 2026 TokenStudio. All rights reserved.</div>
+                <div>Built for the Solana Mobile Ecosystem.</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Simple Document Modal -->
+    <div id="docModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div id="modalBody"
+                style="white-space: pre-wrap; font-family: monospace; font-size: 14px; color: var(--text-secondary);">
+                <!-- Content injected here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const docs = {
+            'PRIVACY': `PRIVACY POLICY\n\nTokenStudio does not collect, store, or transmit any personal data. All private keys are managed by the Solana Seed Vault and never leave your device secure enclave.`,
+            'LICENSE': `MIT LICENSE\n\nCopyright (c) 2026 TokenStudio\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files...`,
+            'COPYRIGHT': `COPYRIGHT NOTICE\n\nCopyright © 2026 TokenStudio. All rights reserved. All rights, title, and interest in and to TokenStudio are the exclusive property of the developer.`
+        };
+
+        function openModal(id) {
+            document.getElementById('modalBody').innerText = docs[id];
+            document.getElementById('docModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('docModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close on background click
+        window.onclick = function (event) {
+            if (event.target == document.getElementById('docModal')) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+
+</html>

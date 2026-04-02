@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copyright Notice - Token Studio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --accent: #BBF294;
+            --accent-glow: rgba(187, 242, 148, 0.4);
+            --bg-dark: #0A0A0A;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --text-primary: #FFFFFF;
+            --text-secondary: rgba(255, 255, 255, 0.6);
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: url('assets/connect.png');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.3) blur(20px);
+        }
+
+        .container {
+            max-width: 800px;
+            width: 90%;
+            margin: 80px 0;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            backdrop-filter: blur(20px);
+            padding: 60px;
+            border-radius: 32px;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 40px;
+            color: var(--accent);
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 40px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .back-btn:hover {
+            color: var(--accent);
+        }
+
+        pre {
+            white-space: pre-wrap;
+            font-family: inherit;
+            color: var(--text-secondary);
+            font-size: 15px;
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 40px 0;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background"></div>
+    <div class="container">
+        <a href="index.html" class="back-btn">← Back to Token Studio</a>
+        <h1>Copyright Notice</h1>
+        <div id="content">
+            <p><strong>Copyright © 2026 Token Studio. All rights reserved.</strong></p>
+
+            <h2>1. Ownership of Content</h2>
+            <p>All right, title, and interest in and to Token Studio, including all software code, layout, designs,
+                graphics, branding elements, and documentation, are the exclusive property of the developer and are
+                protected by applicable intellectual property laws. The developer owns and reserves all rights, titles,
+                and interests except for those specifically licensed from third parties.</p>
+
+            <h2>2. Trademarks</h2>
+            <p>The "Token Studio" name and logo are trademarks of the developer. Use of these marks without prior
+                written permission is strictly prohibited.</p>
+
+            <h2>3. Creative Assets</h2>
+            <p>Any visual mockups, UI components, and icons provided in our documentation and marketing materials (such
+                as the landing page) are proprietary and may not be copied or repurposed for other projects.</p>
+
+            <h2>4. Third-Party Components</h2>
+            <p>Token Studio incorporates certain third-party libraries and open-source packages. These components are
+                used according to their respective licenses (e.g., Apache 2.0, MIT) and copyrights for those elements
+                remain with their original owners.</p>
+
+            <h2>5. Usage License</h2>
+            <p>Your use of Token Studio is subject to the Terms and Conditions. Any attempt to modify, redistribute, or
+                unauthorized use of the software is a violation of applicable copyright laws and our legal agreements.
+                All software code and branding remain the exclusive property of the developer.</p>
+        </div>
+    </div>
+    <footer>© 2026 Token Studio</footer>
+</body>
+
+</html>

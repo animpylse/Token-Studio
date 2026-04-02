@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>License Agreement - Token Studio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --accent: #BBF294;
+            --accent-glow: rgba(187, 242, 148, 0.4);
+            --bg-dark: #0A0A0A;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --text-primary: #FFFFFF;
+            --text-secondary: rgba(255, 255, 255, 0.6);
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: url('assets/connect.png');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.3) blur(20px);
+        }
+
+        .container {
+            max-width: 800px;
+            width: 90%;
+            margin: 80px 0;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            backdrop-filter: blur(20px);
+            padding: 60px;
+            border-radius: 32px;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 40px;
+            color: var(--accent);
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 40px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .back-btn:hover {
+            color: var(--accent);
+        }
+
+        pre {
+            white-space: pre-wrap;
+            font-family: inherit;
+            color: var(--text-secondary);
+            font-size: 15px;
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 40px 0;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background"></div>
+    <div class="container">
+        <a href="index.html" class="back-btn">← Back to Token Studio</a>
+        <h1>Terms and Conditions</h1>
+        <div id="content">
+            <p><strong>Effective Date: April 2, 2026</strong></p>
+
+            <h2>1. Acceptance of Terms</h2>
+            <p>Token Studio provides a technical interface for interacting with the Solana blockchain. By accessing our
+                functionality, you accept these Terms and our Privacy Policy. This constitutes a legally binding
+                agreement between you and the developer.</p>
+
+            <h2>2. License Grant</h2>
+            <p>The developer grants you a limited, non-exclusive, non-transferable license to access and use Token
+                Studio
+                solely for its intended purpose: managing and minting digital assets on the Solana blockchain. This
+                license does not grant you any ownership rights in the infrastructure, code, or design of the Platform.
+            </p>
+
+            <h2>3. Permitted Use</h2>
+            <p>You are permitted to use Token Studio for the following:
+                <br>• Connecting a compatible Solana wallet (e.g., Seed Vault, Phantom, Backpack).
+                <br>• Interacting with supported Solana-based smart contracts (Metaplex, Bubblegum, etc.).
+                <br>• Managing personal digital assets in accordance with on-chain protocols.
+            </p>
+
+            <h2>4. Authentication Methods & Security</h2>
+            <p>You are solely responsible for the retention and security of your <strong>Authentication Methods</strong>
+                (private keys, secret recovery phrases, or Seed Vault credentials). Token Studio does not store and is
+                not responsible for the security of your keys. Anyone who knows your Authentication Method can access or
+                spend your assets.</p>
+
+            <h2>5. Service Fees & Gas</h2>
+            <p>You are responsible for all fees necessary for interacting with the Solana blockchain. Token Studio may
+                charge service fees for professional batch operations; these are visible in-app prior to confirmation
+                and are final and non-refundable once broadcast to the immutable ledger.</p>
+
+            <h2>6. No Guarantees & Experimental Risks</h2>
+            <p>Token Studio is provided on an "as-is" and "as-available" basis, with <strong>no guarantees of uptime,
+                    availability, or performance</strong>. We rely on emerging technologies (Solana, Helius, Metaplex)
+                and you acknowledge and accept the inherent risks of blockchain interactions, including smart contract
+                vulnerabilities and network congestion.</p>
+
+            <h2>7. No Professional Advice</h2>
+            <p>All information provided by Token Studio is for informational purposes only and does not constitute
+                financial, legal, or investment advice. You should seek independent professional advice before making
+                any management decisions.</p>
+
+            <h2>8. Prohibited Use</h2>
+            <p>You agree not to use Token Studio for illegal activities, including money laundering or intellectual
+                property infringement. Reverse engineering, decompiling, or attempting to extract the source code of the
+                application is strictly prohibited.</p>
+
+            <h2>9. Limitation of Liability</h2>
+            <p><strong>THE TOKEN STUDIO PARTIES SHALL NOT BE LIABLE UNDER ANY CIRCUMSTANCES FOR LOST PROFITS OR ANY
+                    SPECIAL, INCIDENTAL, INDIRECT, OR CONSEQUENTIAL DAMAGES ARISING OUT OF OR IN CONNECTION WITH THE USE
+                    OF THIS SOFTWARE.</strong> Total liability is limited to one hundred U.S. dollars ($USD 100.00).</p>
+
+            <h2>10. Jurisdiction</h2>
+            <p>These terms shall be governed by and construed in accordance with the laws of <strong>Sofia,
+                    Bulgaria</strong>. Any dispute arising from these terms shall be subject to the exclusive
+                jurisdiction of the courts of <strong>Sofia, Bulgaria</strong>.</p>
+
+            <h2>11. Final Provisions</h2>
+            <p>If any provision of these Terms is found to be unenforceable or invalid, that provision will be limited
+                or
+                eliminated to the minimum extent necessary so that these Terms will otherwise remain in full force and
+                effect and enforceable.</p>
+        </div>
+    </div>
+    <footer>© 2026 Token Studio</footer>
+</body>
+
+</html>
