@@ -4,26 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bulk Unstaking Solana Stake Accounts | Token Studio Case Study</title>
+    <title>Preventing Costly Mistakes When Transferring To A Solana Domain | Token Studio</title>
     <meta name="description"
-        content="How Token Studio helped a user bulk unstake 96 Solana accounts in one click and track down $250 in lost tokens hidden by active delegated transfers.">
-    <link rel="canonical" href="https://tokenstudio.dev/stories/96-stake-accounts-and-250-missing-usdc.html">
+        content="A real-world case study on Solana domain typos and how Token Studio's four layers of transaction verification prevent expensive crypto mistakes when transferring to a domain.">
+    <link rel="canonical" href="https://tokenstudio.dev/stories/one-character-300-no-undo.html">
 
     <!-- Open Graph / Facebook / Discord -->
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://tokenstudio.dev/stories/96-stake-accounts-and-250-missing-usdc.html">
-    <meta property="og:title" content="Bulk Unstaking Solana Stake Accounts | Token Studio Case Study">
+    <meta property="og:url" content="https://tokenstudio.dev/stories/one-character-300-no-undo.html">
+    <meta property="og:title" content="Preventing Costly Mistakes When Transferring To A Solana Domain">
     <meta property="og:description"
-        content="How Token Studio helped a user bulk unstake 96 Solana accounts in one click and track down $250 in lost tokens hidden by active delegated transfers.">
-    <meta property="og:image" content="https://tokenstudio.dev/assets/telemetry_96_unstake.png">
-
+        content="A real-world case study on Solana domain typos and how Token Studio's four layers of transaction verification prevent expensive crypto mistakes when transferring to a domain.">
     <!-- Twitter / X Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://tokenstudio.dev/stories/96-stake-accounts-and-250-missing-usdc.html">
-    <meta name="twitter:title" content="Bulk Unstaking Solana Stake Accounts | Token Studio Case Study">
+    <meta name="twitter:url" content="https://tokenstudio.dev/stories/one-character-300-no-undo.html">
+    <meta name="twitter:title" content="Preventing Costly Mistakes When Transferring To A Solana Domain">
     <meta name="twitter:description"
-        content="How Token Studio helped a user bulk unstake 96 Solana accounts in one click and track down $250 in lost tokens hidden by active delegated transfers.">
-    <meta name="twitter:image" content="https://tokenstudio.dev/assets/telemetry_96_unstake.png">
+        content="A real-world case study on Solana domain typos and how Token Studio's four layers of transaction verification prevent expensive crypto mistakes when transferring to a domain.">
     <meta name="twitter:creator" content="@impylse">
 
     <!-- JSON-LD Structured Data for SEO / GEO -->
@@ -31,11 +28,11 @@
     {
       "@context": "https://schema.org",
       "@type": "BlogPosting",
-      "headline": "Bulk Unstaking Solana Stake Accounts | Token Studio Case Study",
-      "description": "How Token Studio helped a user bulk unstake 96 Solana accounts in one click and track down $250 in lost tokens hidden by active delegated transfers.",
-      "url": "https://tokenstudio.dev/stories/96-stake-accounts-and-250-missing-usdc.html",
-      "datePublished": "2026-08-03",
-      "keywords": "Bulk unstake Solana, Solana stake accounts, Solana delegated transfers, Token Studio case study, Find lost tokens Solana, Solana hidden token accounts",
+      "headline": "Preventing Costly Mistakes When Transferring To A Solana Domain",
+      "description": "A real-world case study on Solana domain typos and how Token Studio's four layers of transaction verification prevent expensive crypto mistakes when transferring to a domain.",
+      "url": "https://tokenstudio.dev/stories/one-character-300-no-undo.html",
+      "datePublished": "2026-09-06",
+      "keywords": "Solana domain resolution, Solana transaction safety, Prevent mistaken crypto transfers, Verify Solana transaction address, Secure Solana asset management, Transfer to a domain",
       "author": {
         "@type": "Person",
         "name": "impylse"
@@ -232,74 +229,6 @@
             font-size: 17px;
         }
 
-        /* Terminal Viewer */
-        .terminal-window {
-            background: #323339;
-            border: 1px solid var(--card-border);
-            border-radius: 16px;
-            overflow: hidden;
-            margin: 32px 0 12px;
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
-        }
-
-        .terminal-header {
-            background: rgba(0, 0, 0, 0.25);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 12px 16px;
-            display: flex;
-            align-items: center;
-            position: relative;
-        }
-
-        .terminal-dots {
-            display: flex;
-            gap: 8px;
-        }
-
-        .terminal-dots .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            display: inline-block;
-        }
-
-        .terminal-dots .dot.red { background: #FF5F56; }
-        .terminal-dots .dot.yellow { background: #FFBD2E; }
-        .terminal-dots .dot.green { background: #27C93F; }
-
-        .terminal-title {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            font-family: monospace;
-            font-size: 13px;
-            color: var(--text-secondary);
-            letter-spacing: 0.5px;
-        }
-
-        .terminal-body {
-            padding: 20px;
-            background: #323339;
-            display: flex;
-            justify-content: center;
-        }
-
-        .terminal-body .story-img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            border: none;
-            box-shadow: none;
-        }
-
-        .img-caption {
-            font-size: 13px;
-            color: var(--text-secondary);
-            margin-top: 10px;
-            font-style: italic;
-            text-align: center;
-        }
-
         .share-bar {
             margin-top: 50px;
             padding-top: 30px;
@@ -494,65 +423,47 @@
 
         <header class="article-header">
             <span class="tag-badge">Case Study</span>
-            <h1>96 Stake Accounts and $250 in Missing USDC</h1>
+            <h1>One character, $300, No undo.</h1>
             <div class="article-meta">
                 <span>By impylse</span>
                 <span>•</span>
-                <time datetime="2026-08-03">August 3, 2026</time>
+                <time datetime="2026-09-06">September 6, 2026</time>
                 <span>•</span>
-                <span>3 min read</span>
+                <span>2 min read</span>
             </div>
         </header>
 
         <main class="article-content">
-            <p>A user came to the <a href="https://discord.gg/solanamobile" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: underline;">Solana Mobile Discord</a> asking how to unstake accounts containing less than 1 SOL. The process through Seed Vault can be unclear at first, especially when many separate stake accounts are involved.</p>
+            <p>Earlier this week, a Seeker user in the <a href="https://discord.gg/solanamobile" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: underline;">Solana Mobile Discord</a> shared a painful story that I believe should have been avoidable.</p>
 
-            <p>I suggested trying Token Studio, which allows stake accounts to be selected and deactivated in batches.</p>
+            <p>They wanted to send $300 to one of their own wallets using its <code>.skr</code> domain, <strong>cu.skr</strong>, but accidentally mistyped it as <strong>su.skr</strong>. They didn't notice the mistake because the wallet never surfaced the address the domain had actually resolved to.</p>
 
-            <p>A few minutes later, Token Studio’s anonymous telemetry showed that someone had just deactivated <strong>96 stake accounts</strong>. Seconds later, the user returned to Discord to confirm it had worked.</p>
+            <p>The mistyped domain was real. The transaction succeeded. And the $300 went to someone else.</p>
 
-            <div class="terminal-window">
-                <div class="terminal-header">
-                    <div class="terminal-dots">
-                        <span class="dot red"></span>
-                        <span class="dot yellow"></span>
-                        <span class="dot green"></span>
-                    </div>
-                    <div class="terminal-title">token-studio-telemetry.log</div>
-                </div>
-                <div class="terminal-body">
-                    <img src="../assets/telemetry_96_unstake.png" alt="Token Studio telemetry log showing 96 stake accounts deactivated" class="story-img">
-                </div>
-            </div>
-            <p class="img-caption">Real-time anonymous telemetry showing 96 stake accounts deactivated in batch.</p>
+            <p>This was especially painful for me because I'd previously looked at how wallets handle these kinds of operations and had already identified this exact scenario as a possibility.</p>
 
-            <h2>Bulk Unstake Solana: 96 Accounts in 3 Clicks</h2>
-            <p>Instead of managing every position individually, the user selected all 96 accounts and Token Studio divided the operation into four batched transactions.</p>
+            <p>So when I added transfers to domains to Token Studio, I built in <a href="../changelog.html#domain-resolver-update" style="color: var(--accent); text-decoration: underline;">four layers of redundancy</a>:</p>
 
-            <p>While we were talking, the user mentioned another problem: approximately <strong>250 USDC had disappeared</strong> from their wallet.</p>
+            <h2>Layer 1: Solana Domain Resolution Verification</h2>
+            <p>When a domain is resolved, its underlying address is surfaced directly in the UI, so you can confirm where you're actually sending.</p>
 
-            <p>I asked whether their USDC balance appeared red in Token Studio. It did.</p>
+            <h2>Layer 2: Transaction History & Receipts</h2>
+            <p>Token Studio keeps receipts for previous transfers, recognizes addresses you've successfully sent to before, and shows you how many times you've used each one.</p>
 
-            <p>A red token balance indicates that the underlying account has an active delegate, another address authorized to transfer its tokens. That gave us the lead we needed.</p>
+            <h2>Layer 3: Warning</h2>
+            <p>Sending or delegating to an address you've used fewer than two times triggers an additional confirmation.</p>
 
-            <p>We traced a delegated transfer of <strong>255 USDC</strong> through Solana’s Subscriptions and Allowances program into a Squads smart account, and from there into Kamino Finance.</p>
-
-            <p>The funds had not been drained. Loyal’s automatic yield system had moved the user’s idle USDC into Kamino lending, leaving 5 USDC in the original wallet.</p>
-
-            <h2>Find Lost Tokens on Solana: Two Problems Solved</h2>
-            <ul>
-                <li><strong>96 stake accounts</strong> deactivated in four transactions</li>
-                <li><strong>255 USDC</strong> located in a Kamino position</li>
-                <li>An unfamiliar delegated transfer explained</li>
-                <li>No funds lost</li>
-            </ul>
+            <h2>Layer 4: Re-resolution</h2>
+            <p>Before building the transaction, Token Studio resolves the domain one more time and verifies that it still points to the address shown in your address book.</p>
+            
+            <p>Domains can be transferred, burned, or expire. If the original resolution happened some time ago, things may have changed.</p>
+            
+            <p>Any one safeguard can fail to get your attention. That's why there are several.</p>
 
             <div class="highlight-quote">
-                What began as a simple unstaking question became a perfect demonstration of why Token Studio exposes the account details that ordinary wallet balances often hide.
+                This is what I mean when I describe Token Studio as <strong>Vigilant by design.</strong>
                 <br><br>
-                In a standard wallet, unstaking 96 separate accounts would have easily consumed an entire afternoon by approving transaction after transaction one by one. Token Studio turned that into a single 1-operation flow executed in just a few clicks.
-                <br><br>
-                <strong>This is exactly why I'm building Token Studio.</strong>
+                <strong>Small safeguards against expensive mistakes.</strong>
             </div>
         </main>
 
@@ -566,7 +477,7 @@
                     </svg>
                     Copy Link
                 </button>
-                <a href="https://x.com/intent/post?text=96%20Stake%20Accounts%20and%20%24250%20in%20Missing%20USDC&url=https%3A%2F%2Ftokenstudio.dev%2Fstories%2F96-stake-accounts-and-250-missing-usdc.html" target="_blank" rel="noopener noreferrer" class="share-x-btn">
+                <a href="https://x.com/intent/post?text=One%20character%2C%20%24300%2C%20No%20undo.&url=https%3A%2F%2Ftokenstudio.dev%2Fstories%2Fone-character-300-no-undo.html" target="_blank" rel="noopener noreferrer" class="share-x-btn">
                     <svg width="14" height="14" viewBox="0 0 1200 1227" fill="currentColor">
                         <path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/>
                     </svg>
