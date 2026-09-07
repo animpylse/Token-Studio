@@ -183,33 +183,21 @@
             gap: 16px;
         }
 
-        .btn {
-            padding: 20px 38px;
-            border-radius: 20px;
-            font-size: 20px;
-            font-weight: 700;
-            text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        .store-badge-link {
             display: flex;
             align-items: center;
-            gap: 14px;
-            width: 360px;
-            justify-content: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .btn-primary {
-            background: #FFFFFF;
-            color: #0A0A0A;
-        }
-
-        .btn-primary:hover {
+        .store-badge-link:hover {
             transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+            filter: drop-shadow(0 10px 30px rgba(255, 255, 255, 0.15));
         }
 
-        .btn img, .btn svg {
-            width: 29px;
-            height: 29px;
+        .store-badge {
+            height: 68px; /* Slightly larger for banner */
+            width: auto;
+            display: block;
         }
 
         .qr-section {
@@ -288,15 +276,11 @@
 
                 <div class="bottom-section">
                     <div class="cta-group">
-                        <a href="#" class="btn btn-primary">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M3 20.5V3.5C3 2.91 3.34 2.39 3.84 2.15L13.69 12L3.84 21.85C3.34 21.61 3 21.09 3 20.5ZM16.81 15.12L14.81 13.12L17.5 10.43L20.3 12.03C20.88 12.36 20.88 12.89 20.3 13.22L16.81 15.12ZM14.81 10.88L16.81 8.88L4.67 1.94C4.39 1.78 4.1 1.73 3.84 1.85L14.81 10.88ZM3.84 22.15C4.1 22.27 4.39 22.22 4.67 22.06L16.81 15.12L14.81 13.12L3.84 22.15Z" />
-                            </svg>
-                            Get it on Google Play
+                        <a href="https://play.google.com/store/apps/details?id=com.tokenstudio.dev" class="store-badge-link">
+                            <img src="assets/google-play-badge.svg" alt="Get it on Google Play" class="store-badge">
                         </a>
-                        <a href="#" class="btn btn-primary">
-                            <img src="assets/solana_logo.png" alt="Solana">
-                            Get it on the dApp Store
+                        <a href="solanadappstore://details?id=com.tokenstudio.app" class="store-badge-link">
+                            <img src="assets/solana-dapp-store-badge.svg" alt="Get it on the Solana dApp Store" class="store-badge">
                         </a>
                     </div>
 
@@ -317,7 +301,7 @@
             </div>
 
             <div class="right-panel">
-                <img src="screenshots/Screenshot_1.png" alt="App Preview" class="app-mockup">
+                <img src="screenshots/1.jpg" alt="App Preview" class="app-mockup">
             </div>
         </div>
     </div>
