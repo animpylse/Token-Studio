@@ -11,16 +11,17 @@
 
     <!-- Open Graph / Facebook / Discord -->
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://tokenstudio.dev/stories/one-character-300-no-undo.html">
     <meta property="og:title" content="Preventing Costly Mistakes When Transferring To A Solana Domain">
     <meta property="og:description"
         content="A real-world case study on Solana domain typos and how Token Studio's four layers of transaction verification prevent expensive crypto mistakes when transferring to a domain.">
+    <meta property="og:image" content="https://tokenstudio.dev/assets/og-card.png">
     <!-- Twitter / X Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://tokenstudio.dev/stories/one-character-300-no-undo.html">
     <meta name="twitter:title" content="Preventing Costly Mistakes When Transferring To A Solana Domain">
     <meta name="twitter:description"
         content="A real-world case study on Solana domain typos and how Token Studio's four layers of transaction verification prevent expensive crypto mistakes when transferring to a domain.">
+    <meta name="twitter:image" content="https://tokenstudio.dev/assets/og-card.png">
     <meta name="twitter:creator" content="@impylse">
 
     <!-- JSON-LD Structured Data for SEO / GEO -->
@@ -120,6 +121,7 @@
                 opacity: 0;
                 transform: translateY(10px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -391,6 +393,7 @@
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
+
             .footer-bottom {
                 flex-direction: column;
                 gap: 12px;
@@ -402,9 +405,11 @@
             .container {
                 padding: 30px 20px;
             }
+
             h1 {
                 font-size: 28px;
             }
+
             .share-bar {
                 flex-direction: column;
                 gap: 16px;
@@ -434,30 +439,43 @@
         </header>
 
         <main class="article-content">
-            <p>Earlier this week, a Seeker user in the <a href="https://discord.gg/solanamobile" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: underline;">Solana Mobile Discord</a> shared a painful story that I believe should have been avoidable.</p>
+            <p>Earlier this week, a Seeker user in the <a href="https://discord.gg/solanamobile" target="_blank"
+                    rel="noopener noreferrer" style="color: var(--accent); text-decoration: underline;">Solana Mobile
+                    Discord</a> shared a painful story that I believe should have been avoidable.</p>
 
-            <p>They wanted to send $300 to one of their own wallets using its <code>.skr</code> domain, <strong>cu.skr</strong>, but accidentally mistyped it as <strong>su.skr</strong>. They didn't notice the mistake because the wallet never surfaced the address the domain had actually resolved to.</p>
+            <p>They wanted to send $300 to one of their own wallets using its <code>.skr</code> domain,
+                <strong>cu.skr</strong>, but accidentally mistyped it as <strong>su.skr</strong>. They didn't notice the
+                mistake because the wallet never surfaced the address the domain had actually resolved to.
+            </p>
 
             <p>The mistyped domain was real. The transaction succeeded. And the $300 went to someone else.</p>
 
-            <p>This was especially painful for me because I'd previously looked at how wallets handle these kinds of operations and had already identified this exact scenario as a possibility.</p>
+            <p>This was especially painful for me because I'd previously looked at how wallets handle these kinds of
+                operations and had already identified this exact scenario as a possibility.</p>
 
-            <p>So when I added transfers to domains to Token Studio, I built in <a href="../changelog.html#domain-resolver-update" style="color: var(--accent); text-decoration: underline;">four layers of redundancy</a>:</p>
+            <p>So when I added transfers to domains to Token Studio, I built in <a
+                    href="../changelog.html#domain-resolver-update"
+                    style="color: var(--accent); text-decoration: underline;">four layers of redundancy</a>:</p>
 
             <h2>Layer 1: Solana Domain Resolution Verification</h2>
-            <p>When a domain is resolved, its underlying address is surfaced directly in the UI, so you can confirm where you're actually sending.</p>
+            <p>When a domain is resolved, its underlying address is surfaced directly in the UI, so you can confirm
+                where you're actually sending.</p>
 
             <h2>Layer 2: Transaction History & Receipts</h2>
-            <p>Token Studio keeps receipts for previous transfers, recognizes addresses you've successfully sent to before, and shows you how many times you've used each one.</p>
+            <p>Token Studio keeps receipts for previous transfers, recognizes addresses you've successfully sent to
+                before, and shows you how many times you've used each one.</p>
 
             <h2>Layer 3: Warning</h2>
-            <p>Sending or delegating to an address you've used fewer than two times triggers an additional confirmation.</p>
+            <p>Sending or delegating to an address you've used fewer than two times triggers an additional confirmation.
+            </p>
 
             <h2>Layer 4: Re-resolution</h2>
-            <p>Before building the transaction, Token Studio resolves the domain one more time and verifies that it still points to the address shown in your address book.</p>
-            
-            <p>Domains can be transferred, burned, or expire. If the original resolution happened some time ago, things may have changed.</p>
-            
+            <p>Before building the transaction, Token Studio resolves the domain one more time and verifies that it
+                still points to the address shown in your address book.</p>
+
+            <p>Domains can be transferred, burned, or expire. If the original resolution happened some time ago, things
+                may have changed.</p>
+
             <p>Any one safeguard can fail to get your attention. That's why there are several.</p>
 
             <div class="highlight-quote">
@@ -471,15 +489,18 @@
             <span>Enjoyed this story?</span>
             <div class="share-btn-group">
                 <button type="button" class="copy-link-btn" id="copyBtn">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
                         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
                         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
                     </svg>
                     Copy Link
                 </button>
-                <a href="https://x.com/intent/post?text=One%20character%2C%20%24300%2C%20No%20undo.&url=https%3A%2F%2Ftokenstudio.dev%2Fstories%2Fone-character-300-no-undo.html" target="_blank" rel="noopener noreferrer" class="share-x-btn">
+                <a href="https://x.com/intent/post?text=One%20character%2C%20%24300%2C%20No%20undo.&url=https%3A%2F%2Ftokenstudio.dev%2Fstories%2Fone-character-300-no-undo.html"
+                    target="_blank" rel="noopener noreferrer" class="share-x-btn">
                     <svg width="14" height="14" viewBox="0 0 1200 1227" fill="currentColor">
-                        <path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/>
+                        <path
+                            d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z" />
                     </svg>
                     Post on X
                 </a>
@@ -500,7 +521,8 @@
             <div class="footer-grid">
                 <div class="footer-col">
                     <div class="footer-logo">Token Studio</div>
-                    <p class="footer-desc">Professional-grade engine for comprehensive asset lifecycle management on the Solana blockchain.</p>
+                    <p class="footer-desc">Professional-grade engine for comprehensive asset lifecycle management on the
+                        Solana blockchain.</p>
                 </div>
                 <div class="footer-col">
                     <h5>Resources</h5>
@@ -515,9 +537,12 @@
                 <div class="footer-col">
                     <h5>Social</h5>
                     <ul>
-                        <li><a href="https://x.com/impylse" target="_blank" rel="noopener noreferrer">Twitter / X</a></li>
-                        <li><a href="https://discord.com/invite/5z4pE9E5Zj" target="_blank" rel="noopener noreferrer">Discord Community</a></li>
-                        <li><a href="https://www.mallow.art/collection/iN3oJdcnQyWjXj3Xw6sy65Zojdg8RBS4VPQ3PmHff5S" target="_blank" rel="noopener noreferrer">Mallow Collection</a></li>
+                        <li><a href="https://x.com/impylse" target="_blank" rel="noopener noreferrer">Twitter / X</a>
+                        </li>
+                        <li><a href="https://discord.com/invite/5z4pE9E5Zj" target="_blank"
+                                rel="noopener noreferrer">Discord Community</a></li>
+                        <li><a href="https://www.mallow.art/collection/iN3oJdcnQyWjXj3Xw6sy65Zojdg8RBS4VPQ3PmHff5S"
+                                target="_blank" rel="noopener noreferrer">Mallow Collection</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -537,7 +562,7 @@
     </footer>
 
     <script>
-        document.getElementById('copyBtn').addEventListener('click', function() {
+        document.getElementById('copyBtn').addEventListener('click', function () {
             const url = window.location.href;
             navigator.clipboard.writeText(url).then(() => {
                 const toast = document.getElementById('toast');
